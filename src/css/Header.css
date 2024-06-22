@@ -1,81 +1,84 @@
-.header{
-    background-color: #3C415C;
-    color: #F8F9FA;
-    padding: 10px;
-    margin-bottom: 10px;
-    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.596);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.header {
+  background-color: #3c415c;
+  color: #f8f9fa;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.596);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.header h1{
-    margin-left: 30px;
+.header.sun {
+  background-color: #f8f9fa;
+  color: #2b2d42;
 }
 
-.theme-button{
-    margin-right: 30px;
-    width: 30px;
-    height: 30px;
-    border: none;
-    border-radius: 50%;
-    background-color: #F8F9FA;
-    cursor: pointer;
-    transition: color 0.3s ease;
+.header h1 {
+  margin-left: 30px;
 }
 
-.theme-button:hover{
-    background-color: #f8f9facc;
+.theme-button {
+  margin-right: 30px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  background-color: #f8f9fa;
+  cursor: pointer;
+  transition: color 0.3s ease;
 }
 
-.theme-button:focus{
-    outline: none;
+.theme-button:hover {
+  background-color: #f8f9facc;
 }
 
-.sun{
-    background-color: #F8F9FA;
+.theme-button:focus {
+  outline: none;
 }
 
-.moon{
-    background-color: #EF233C;
+.theme-button.sun {
+  background-color: #5f5959;
 }
 
-.moon:hover{
-    background-color: #EF233Ccc;
+.theme-button.sun:hover {
+  background-color: #aaaaaa;
 }
 
-.moon img {
-    filter: invert(1);
+.theme-button.moon {
+  background-color: #ef233c;
 }
 
+.theme-button.moon:hover {
+  background-color: #ef233ccc;
+}
 
-
-
+.theme-button img {
+  filter: invert(1);
+}
 
 @media screen and (max-width: 768px) {
-    .header {
-        flex-direction: column;
-        align-items: center;
-    }
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .header h1 {
-        margin-left: 0px;
-        margin-bottom: 10px;
-    }
+  .header h1 {
+    margin-left: 0px;
+    margin-bottom: 10px;
+  }
 
-    .themeWrapper {
-        margin-top: 10px;
-    }
-    
-    .theme-button{
-        margin-right: 0px;
-    }
+  .themeWrapper {
+    margin-top: 10px;
+  }
 
+  .theme-button {
+    margin-right: 0px;
+  }
 }
 
 @media screen and (max-width: 480px) {
-    .header h1{
-        font-size: 25px;
-    }
-
+  .header h1 {
+    font-size: 25px;
+  }
 }

@@ -1,136 +1,164 @@
 .main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .boxes {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    gap: 5%;
-    width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  gap: 5%;
+  width: 80%;
 }
 
 .textareaWrapper {
-    width: 100%;
-    height: 500px;
-    resize: none;
-    overflow: scroll;
-    border-radius: 10px;
-    border: 1px solid #3C415C;
+  width: 100%;
+  height: 500px;
+  resize: none;
+  overflow: scroll;
+  border-radius: 10px;
+  border: 1px solid #3c415c;
+}
+
+.textareaWrapper.light {
+  border: 1px solid #d0d0d0;
 }
 
 .textareaWrapper::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .textareaWrapper {
-    scrollbar-width: none
+  scrollbar-width: none;
 }
 
 .controls {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    gap: 10px;
-    background-color: #3C415C;
-    color: #F0F0F0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  gap: 10px;
+  background-color: #3c415c;
+  color: #f0f0f0;
+}
+
+.controls.light {
+  background-color: #c0c0c0;
+  color: #6d6d6d;
 }
 
 .controls-preview {
-    justify-content: space-between;
-    padding-left: 30px;
-    padding-right: 30px;
+  justify-content: space-between;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .controls input {
-    margin-left: 10px;
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    background-color: #1A1A1A;
-    color: #F0F0F0;
+  margin-left: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+}
+
+.controls.light input {
+  background-color: #d0d0d0;
+  color: #1a1a1a;
 }
 
 .controls input:focus {
-    border: 1px solid #8D99AE;
+  border: 1px solid #8d99ae;
 }
 
 .textarea {
-    width: 100%;
-    height: 100%;
-    resize: none;
-    border: none;
-    outline: none;
-    background-color: #1A1A1A;
-    color: #F0F0F0;
-    padding: 10px;
+  width: 100%;
+  height: 100%;
+  resize: none;
+  border: none;
+  outline: none;
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+  padding: 10px;
+}
+
+.textarea.light {
+  background-color: #d0d0d0;
+  color: #1a1a1a;
 }
 
 .preview {
-    width: 100%;
-    height: 500px;
-    border: 1px solid #3C415C;
-    overflow: scroll;
-    border-radius: 10px;
-    background-color: #1A1A1A;
-    color: #F0F0F0;
+  width: 100%;
+  height: 500px;
+  border: 1px solid #3c415c;
+  overflow: scroll;
+  border-radius: 10px;
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+}
+
+.preview.light {
+  border: 1px solid #c0c0c0;
+  background-color: #d0d0d0;
+  color: #1a1a1a;
 }
 
 .preview::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .preview {
-    scrollbar-width: none;
+  scrollbar-width: none;
 }
 
 .preview-content {
-    padding: 10px;
+  padding: 10px;
 }
 
 .button {
-    background-color: #8D99AE;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  background-color: #8d99ae;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .button:hover {
-    background-color: coral;
+  background-color: coral;
 }
 
+.button.light {
+  background-color: #aaaaaa;
+}
 
+.button.light:hover {
+  background-color: #d0d0d0;
+}
 
 @media (max-width: 1000px) {
-    .boxes {
-        flex-direction: column;
-        width: 90%;
-        gap: 10px;
-    }
+  .boxes {
+    flex-direction: column;
+    width: 90%;
+    gap: 10px;
+  }
 
-    .preview {
-        width: 100%;
-        height: 350px;;
-    }
+  .preview {
+    width: 100%;
+    height: 350px;
+  }
 
-    .textareaWrapper {
-        width: 100%;
-        height: 350px;
-    
-    }
-
+  .textareaWrapper {
+    width: 100%;
+    height: 350px;
+  }
 }
 
 @media screen and (max-width: 400px) {
-
 }

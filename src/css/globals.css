@@ -1,5 +1,17 @@
 body {
-    margin: 0%;
-    padding: 0%;
-    background-color: #2B2D42;
+  margin: 0%;
+  padding: 0%;
+  background-color: #2b2d42;
+}
+
+.dark {
+  --background-color: #2b2d42;
+}
+
+.light {
+  --background-color: #fff;
+}
+
+body {
+  background-color: var(--background-color);
 }

@@ -10,9 +10,13 @@ import download from "../data/img/download.png";
 import reset from "../data/img/reset.png";
 import clear from "../data/img/clear.png";
 
+import { useTheme } from "@/components/ThemeContext";
+
 const MarkdownPreviewer = (props) => {
   const [markdown, setMarkdown] = useState(example);
   const [fontSize, setFontSize] = useState(16);
+
+  const { theme } = useTheme();
 
   const handleMarkdownChange = (e) => {
     setMarkdown(e.target.value);
@@ -38,16 +42,25 @@ const MarkdownPreviewer = (props) => {
   return (
     <div className="main">
       <div className="boxes">
-        <div className="textareaWrapper">
-          <div className="controls">
+        <div className={`textareaWrapper ${theme === "light" ? "light" : ""}`}>
+          <div className={`controls ${theme === "light" ? "light" : ""}`}>
             <h3>Input</h3>
-            <button className="button" onClick={resetTextarea}>
+            <button
+              className={`button ${theme === "light" ? "light" : ""}`}
+              onClick={resetTextarea}
+            >
               <Image src={reset} alt="Reset" width={15} height={15} />
             </button>
-            <button className="button" onClick={copyToClipboard}>
+            <button
+              className={`button ${theme === "light" ? "light" : ""}`}
+              onClick={copyToClipboard}
+            >
               <Image src={copy} alt="Copy" width={15} height={15} />
             </button>
-            <button className="button" onClick={() => setMarkdown("")}>
+            <button
+              className={`button ${theme === "light" ? "light" : ""}`}
+              onClick={() => setMarkdown("")}
+            >
               <Image src={clear} alt="Clear" width={15} height={15} />
             </button>
             <label>
@@ -62,7 +75,7 @@ const MarkdownPreviewer = (props) => {
             </label>
           </div>
           <textarea
-            className="textarea"
+            className={`textarea ${theme === "light" ? "light" : ""}`}
             style={{
               fontSize: `${fontSize}px`,
             }}
@@ -70,10 +83,17 @@ const MarkdownPreviewer = (props) => {
             onChange={handleMarkdownChange}
           />
         </div>
-        <div className="preview">
-          <div className="controls controls-preview">
+        <div className={`preview ${theme === "light" ? "light" : ""}`}>
+          <div
+            className={`controls controls-preview ${
+              theme === "light" ? "light" : ""
+            }`}
+          >
             <h3>Preview</h3>
-            <button className="button" onClick={handleDownload}>
+            <button
+              className={`button ${theme === "light" ? "light" : ""}`}
+              onClick={handleDownload}
+            >
               <Image src={download} alt="Download" width={15} height={15} />
             </button>
           </div>
