@@ -44,35 +44,39 @@ const MarkdownPreviewer = (props) => {
       <div className="boxes">
         <div className={`textareaWrapper ${theme === "light" ? "light" : ""}`}>
           <div className={`controls ${theme === "light" ? "light" : ""}`}>
-            <h3>Input</h3>
-            <button
-              className={`button ${theme === "light" ? "light" : ""}`}
-              onClick={resetTextarea}
-            >
-              <Image src={reset} alt="Reset" width={15} height={15} />
-            </button>
-            <button
-              className={`button ${theme === "light" ? "light" : ""}`}
-              onClick={copyToClipboard}
-            >
-              <Image src={copy} alt="Copy" width={15} height={15} />
-            </button>
-            <button
-              className={`button ${theme === "light" ? "light" : ""}`}
-              onClick={() => setMarkdown("")}
-            >
-              <Image src={clear} alt="Clear" width={15} height={15} />
-            </button>
-            <label>
-              Font Size:
-              <input
-                type="number"
-                value={fontSize}
-                onChange={(e) => setFontSize(parseInt(e.target.value))}
-                min="12"
-                max="24"
-              />
-            </label>
+            <div className="controls-input">
+              <h3>Input</h3>
+              <label>
+                Font Size:
+                <input
+                  type="number"
+                  value={fontSize}
+                  onChange={(e) => setFontSize(parseInt(e.target.value))}
+                  min="12"
+                  max="24"
+                />
+              </label>
+            </div>
+            <div className="controls-buttons">
+              <button
+                className={`button ${theme === "light" ? "light" : ""}`}
+                onClick={resetTextarea}
+              >
+                <Image src={reset} alt="Reset" width={15} height={15} />
+              </button>
+              <button
+                className={`button ${theme === "light" ? "light" : ""}`}
+                onClick={copyToClipboard}
+              >
+                <Image src={copy} alt="Copy" width={15} height={15} />
+              </button>
+              <button
+                className={`button ${theme === "light" ? "light" : ""}`}
+                onClick={() => setMarkdown("")}
+              >
+                <Image src={clear} alt="Clear" width={15} height={15} />
+              </button>
+            </div>
           </div>
           <textarea
             className={`textarea ${theme === "light" ? "light" : ""}`}

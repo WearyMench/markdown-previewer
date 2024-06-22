@@ -29,6 +29,12 @@
   transition: color 0.3s ease;
 }
 
+.theme-button.sun {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .theme-button:hover {
   background-color: #f8f9facc;
 }

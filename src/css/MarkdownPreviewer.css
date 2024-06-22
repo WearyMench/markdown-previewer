@@ -121,6 +121,32 @@
   padding: 10px;
 }
 
+.controls-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  gap: 40px;
+}
+
+.controls-input label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.controls-input input {
+  align-items: center;
+  justify-content: center;
+}
+
+.controls-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
 .button {
   background-color: #8d99ae;
   border: none;
@@ -161,4 +187,22 @@
 }
 
 @media screen and (max-width: 400px) {
+  .controls {
+    flex-direction: column;
+    padding-bottom: 10px;
+    gap: 0px;
+  }
+
+  .controls-preview {
+    flex-direction: row;
+  }
+
+  .controls input {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .controls-buttons {
+    margin-top: 10px;
+  }
 }
