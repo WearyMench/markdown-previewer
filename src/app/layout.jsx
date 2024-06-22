@@ -1,4 +1,6 @@
 import React from "react";
+import "./globals.css";
+
 export const metadata = {
   title: "Markdown Previewer",
   description: "A live Markdown previewer",

@@ -1,10 +1,26 @@
-import React, { useState } from 'react';
-import {marked} from 'marked';
-import SyntaxHighlighterWrapper from './SyntaxHighlighterWrapper';
+import React, { useState } from "react";
+import { marked } from "marked";
+import SyntaxHighlighterWrapper from "./SyntaxHighlighterWrapper";
+import "../css/MarkdownPreviewer.css";
 
 const MarkdownPreviewer = () => {
-  const [markdown, setMarkdown] = useState('');
-  const [theme, setTheme] = useState('light');
+  const [markdown, setMarkdown] = useState(`*This text will be italic*\n
+  ## Tables
+
+| Left columns  | Right columns |
+| ------------- |:-------------:|
+| left foo      | right foo     |
+| left bar      | right bar     |
+| left baz      | right baz     |
+
+## Blocks of code
+
+\`\`\`
+let message = 'Hello world';
+alert(message);
+\`\`\`
+    `);
+  const [theme, setTheme] = useState("light");
   const [fontSize, setFontSize] = useState(16);
 
   const handleMarkdownChange = (e) => {
@@ -12,24 +28,16 @@ const MarkdownPreviewer = () => {
   };
 
   const handleDownload = () => {
-    const blob = new Blob([marked(markdown)], { type: 'text/html' });
-    const link = document.createElement('a');
+    const blob = new Blob([marked(markdown)], { type: "text/html" });
+    const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
-    link.download = 'markdown.html';
+    link.download = "markdown.html";
     link.click();
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <div style={{ marginBottom: '20px' }}>
-        <textarea
-          style={{ width: '600px', height: '200px', fontSize: `${fontSize}px` }}
-          value={markdown}
-          onChange={handleMarkdownChange}
-        />
-        <SyntaxHighlighterWrapper code={markdown} />
-      </div>
-      <div>
+    <div className="main">
+      <div className="controls">
         <label>
           Theme:
           <select value={theme} onChange={(e) => setTheme(e.target.value)}>
@@ -49,17 +57,26 @@ const MarkdownPreviewer = () => {
         </label>
         <button onClick={handleDownload}>Download HTML</button>
       </div>
-      <div
-        style={{
-          width: '600px',
-          backgroundColor: theme === 'light' ? '#fff' : '#333',
-          color: theme === 'light' ? '#000' : '#fff',
-          padding: '10px',
-          marginTop: '20px',
-          borderRadius: '5px',
-        }}
-      >
-        <div dangerouslySetInnerHTML={{ __html: marked(markdown) }} />
+      <div className="boxes">
+        <textarea
+          className="textarea"
+          style={{
+            backgroundColor: theme === "light" ? "#fff" : "#333",
+            color: theme === "light" ? "#000" : "#fff",
+          }}
+          value={markdown}
+          onChange={handleMarkdownChange}
+        />
+        {/* <SyntaxHighlighterWrapper code={markdown} /> */}
+        <div
+          className="preview"
+          style={{
+            backgroundColor: theme === "light" ? "#fff" : "#333",
+            color: theme === "light" ? "#000" : "#fff",
+          }}
+        >
+          <div dangerouslySetInnerHTML={{ __html: marked(markdown) }} />
+        </div>
       </div>
     </div>
   );
