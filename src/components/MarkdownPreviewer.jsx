@@ -1,26 +1,17 @@
 import React, { useState } from "react";
 import { marked } from "marked";
-import SyntaxHighlighterWrapper from "./SyntaxHighlighterWrapper";
+import Image from "next/image";
+
 import "../css/MarkdownPreviewer.css";
+import example from "../data/example.jsx";
 
-const MarkdownPreviewer = () => {
-  const [markdown, setMarkdown] = useState(`*This text will be italic*\n
-  ## Tables
+import copy from "../data/img/copy.png";
+import download from "../data/img/download.png";
+import reset from "../data/img/reset.png";
+import clear from "../data/img/clear.png";
 
-| Left columns  | Right columns |
-| ------------- |:-------------:|
-| left foo      | right foo     |
-| left bar      | right bar     |
-| left baz      | right baz     |
-
-## Blocks of code
-
-\`\`\`
-let message = 'Hello world';
-alert(message);
-\`\`\`
-    `);
-  const [theme, setTheme] = useState("light");
+const MarkdownPreviewer = (props) => {
+  const [markdown, setMarkdown] = useState(example);
   const [fontSize, setFontSize] = useState(16);
 
   const handleMarkdownChange = (e) => {
@@ -35,47 +26,63 @@ alert(message);
     link.click();
   };
 
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(markdown);
+  };
+
+  const resetTextarea = () => {
+    setMarkdown(example);
+    setFontSize(16);
+  };
+
   return (
     <div className="main">
-      <div className="controls">
-        <label>
-          Theme:
-          <select value={theme} onChange={(e) => setTheme(e.target.value)}>
-            <option value="light">Light</option>
-            <option value="dark">Dark</option>
-          </select>
-        </label>
-        <label>
-          Font Size:
-          <input
-            type="number"
-            value={fontSize}
-            onChange={(e) => setFontSize(parseInt(e.target.value))}
-            min="12"
-            max="24"
-          />
-        </label>
-        <button onClick={handleDownload}>Download HTML</button>
-      </div>
       <div className="boxes">
-        <textarea
-          className="textarea"
-          style={{
-            backgroundColor: theme === "light" ? "#fff" : "#333",
-            color: theme === "light" ? "#000" : "#fff",
-          }}
-          value={markdown}
-          onChange={handleMarkdownChange}
-        />
-        {/* <SyntaxHighlighterWrapper code={markdown} /> */}
-        <div
-          className="preview"
-          style={{
-            backgroundColor: theme === "light" ? "#fff" : "#333",
-            color: theme === "light" ? "#000" : "#fff",
-          }}
-        >
-          <div dangerouslySetInnerHTML={{ __html: marked(markdown) }} />
+        <div className="textareaWrapper">
+          <div className="controls">
+            <h3>Input</h3>
+            <button className="button" onClick={resetTextarea}>
+              <Image src={reset} alt="Reset" width={15} height={15} />
+            </button>
+            <button className="button" onClick={copyToClipboard}>
+              <Image src={copy} alt="Copy" width={15} height={15} />
+            </button>
+            <button className="button" onClick={() => setMarkdown("")}>
+              <Image src={clear} alt="Clear" width={15} height={15} />
+            </button>
+            <label>
+              Font Size:
+              <input
+                type="number"
+                value={fontSize}
+                onChange={(e) => setFontSize(parseInt(e.target.value))}
+                min="12"
+                max="24"
+              />
+            </label>
+          </div>
+          <textarea
+            className="textarea"
+            style={{
+              fontSize: `${fontSize}px`,
+            }}
+            value={markdown}
+            onChange={handleMarkdownChange}
+          />
+        </div>
+        <div className="preview">
+          <div className="controls controls-preview">
+            <h3>Preview</h3>
+            <button className="button" onClick={handleDownload}>
+              <Image src={download} alt="Download" width={15} height={15} />
+            </button>
+          </div>
+          <div
+            className="preview-content"
+            dangerouslySetInnerHTML={{
+              __html: marked(markdown),
+            }}
+          />
         </div>
       </div>
     </div>
