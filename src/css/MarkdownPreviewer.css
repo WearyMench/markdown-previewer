@@ -26,7 +26,7 @@
 }
 
 .textareaWrapper.light {
-  border: 1px solid #d0d0d0;
+  border: 1px solid #c0c0c8;
 }
 
 .textareaWrapper::-webkit-scrollbar {
@@ -48,8 +48,8 @@
 }
 
 .controls.light {
-  background-color: #c0c0c0;
-  color: #6d6d6d;
+  background-color: #d3d6e0;
+  color: #333;
 }
 
 .controls-preview {
@@ -69,8 +69,8 @@
 }
 
 .controls.light input {
-  background-color: #d0d0d0;
-  color: #1a1a1a;
+  background-color: #e0e0e6;
+  color: #555;
 }
 
 .controls input:focus {
@@ -89,8 +89,8 @@
 }
 
 .textarea.light {
-  background-color: #d0d0d0;
-  color: #1a1a1a;
+  background-color: #e0e0e6;
+  color: #555;
 }
 
 .preview {
@@ -104,9 +104,11 @@
 }
 
 .preview.light {
-  border: 1px solid #c0c0c0;
-  background-color: #d0d0d0;
-  color: #1a1a1a;
+  border: 1px solid #c0c0c8;
+  background-color: #e0e0e6;
+  color: #555;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
 }
 
 .preview::-webkit-scrollbar {
@@ -119,6 +121,63 @@
 
 .preview-content {
   padding: 10px;
+}
+
+.preview-content table {
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+.preview-content th,
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+.preview-content th {
+  background-color: #72727227;
+}
+.preview-content tr:nth-child(even) {
+  background-color: #72727227;
+}
+.preview-content tr:hover {
+  background-color: #92717127;
+}
+
+.preview-content th.light,
+.preview-content td.light {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+.preview-content th .light {
+  background-color: #d4d4dc;
+}
+.preview-content tr:nth-child(even) .light {
+  background-color: #d4d4dc;
+}
+.preview-content tr:hover .light {
+  background-color: #92717127;
+}
+
+.preview-content pre {
+  background-color: #1f1f1f;
+  padding: 10px;
+  border-radius: 5px;
+  display: block;
+  overflow-x: auto;
+}
+
+.light .preview-content pre {
+  background-color: #d4d4dc;
+}
+
+.preview-content code {
+  background-color: #1f1f1f;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+.light .preview-content code {
+  background-color: #d4d4dc;
 }
 
 .controls-input {
@@ -161,11 +220,11 @@
 }
 
 .button.light {
-  background-color: #aaaaaa;
+  background-color: #7289da;
 }
 
 .button.light:hover {
-  background-color: #d0d0d0;
+  background-color: #aab8f0;
 }
 
 @media (max-width: 1000px) {
